@@ -18,11 +18,6 @@ public class InstanceUrlController {
     }
 
     // 개발중, 테스트용 url연결 만듬.
-   /*
-    @GetMapping("/")
-    public String index3(){
 
-        return "redirect:/administer/instanceurl";
-    }
-*/
+
 }

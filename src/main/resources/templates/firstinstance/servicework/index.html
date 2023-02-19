@@ -46,6 +46,27 @@
                 <td class="font-12 d-flex align-items-center" style="width:190px;">
                     <select id="field" name="field" style="width:80px;" title="키워드 선택" autocomplete="on" >
                         <option th:value="id" th:selected="${#strings.trim(param.field) eq 'id'}">id</option>
+                        <option th:value="coopName" th:selected="${#strings.trim(param.field) eq 'coopName'}">coopName</option>
+                        <option th:value="coopComment" th:selected="${#strings.trim(param.field) eq 'coopComment'}">coopComment</option>
+                        <option th:value="coopWorkName" th:selected="${#strings.trim(param.field) eq 'coopWorkName'}">coopWorkName</option>
+                        <option th:value="wtag1" th:selected="${#strings.trim(param.field) eq 'wtag1'}">wtag1</option>
+                        <option th:value="wtag2" th:selected="${#strings.trim(param.field) eq 'wtag2'}">wtag2</option>
+                        <option th:value="startWorkDate" th:selected="${#strings.trim(param.field) eq 'startWorkDate'}">startWorkDate</option>
+                        <option th:value="endWorkDate" th:selected="${#strings.trim(param.field) eq 'endWorkDate'}">endWorkDate</option>
+                        <option th:value="searchTag1" th:selected="${#strings.trim(param.field) eq 'searchTag1'}">searchTag1</option>
+                        <option th:value="searchTag2" th:selected="${#strings.trim(param.field) eq 'searchTag2'}">searchTag2</option>
+                        <option th:value="searchTag3" th:selected="${#strings.trim(param.field) eq 'searchTag3'}">searchTag3</option>
+                        <option th:value="searchTag4" th:selected="${#strings.trim(param.field) eq 'searchTag4'}">searchTag4</option>
+                        <option th:value="searchTag5" th:selected="${#strings.trim(param.field) eq 'searchTag5'}">searchTag5</option>
+                        <option th:value="viewCount" th:selected="${#strings.trim(param.field) eq 'viewCount'}">viewCount</option>
+                        <option th:value="likeCount" th:selected="${#strings.trim(param.field) eq 'likeCount'}">likeCount</option>
+                        <option th:value="starCount" th:selected="${#strings.trim(param.field) eq 'starCount'}">starCount</option>
+                        <option th:value="starAll" th:selected="${#strings.trim(param.field) eq 'starAll'}">starAll</option>
+                        <option th:value="starPairMan" th:selected="${#strings.trim(param.field) eq 'starPairMan'}">starPairMan</option>
+                        <option th:value="isDel" th:selected="${#strings.trim(param.field) eq 'isDel'}">isDel</option>
+                        <option th:value="modifiedDate" th:selected="${#strings.trim(param.field) eq 'modifiedDate'}">modifiedDate</option>
+                        <option th:value="createdDate" th:selected="${#strings.trim(param.field) eq 'createdDate'}">createdDate</option>
+                        <option th:value="serviceWorkStrId" th:selected="${#strings.trim(param.field) eq 'serviceWorkStrId'}">serviceWorkStrId</option>
                     </select>
                     &nbsp;
                     <input class="font-12" style="width:110px;" type="text" title="키워드" placeholder="키워드명 입력" name="s" th:field="*{s}" autocomplete="on" >
