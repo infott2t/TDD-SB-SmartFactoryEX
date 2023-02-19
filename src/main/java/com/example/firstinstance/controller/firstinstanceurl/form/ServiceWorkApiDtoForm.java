@@ -20,8 +20,14 @@ public class ServiceWorkApiDtoForm {
     private String searchTag3;
     private String searchTag4;
     private String searchTag5;
+    private Long viewCount;
+    private Long likeCount;
+    private Long starCount;
+    private Long starAll;
+    private Long starPairMan;
 
     private String isDel;
     private LocalDateTime modifiedDate;
     private LocalDateTime createdDate;
+    private Long serviceWorkStrId;
 }

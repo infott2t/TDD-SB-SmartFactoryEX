@@ -87,6 +87,12 @@
             <th>searchTag3</th>
             <th>searchTag4</th>
             <th>searchTag5</th>
+            <th>viewCount</th>
+            <th>likeCount</th>
+            <th>starCount</th>
+            <th>starAll</th>
+            <th>starPairMan</th>
+            <th>service_work_str_id</th>
             <th>삭제여부</th>
             <th>수정일</th>
             <th>생성일</th>
@@ -113,6 +119,12 @@
                 <td><input type="text" th:field="*{searchTag3}"/></td>
                 <td><input type="text" th:field="*{searchTag4}"/></td>
                 <td><input type="text" th:field="*{searchTag5}"/></td>
+                <td><input type="text" th:field="*{viewCount}"/></td>
+                <td><input type="text" th:field="*{likeCount}"/></td>
+                <td><input type="text" th:field="*{starCount}"/></td>
+                <td><input type="text" th:field="*{starAll}"/></td>
+                <td><input type="text" th:field="*{starPairMan}"/></td>
+                <td><input type="text" th:field="${userForm.serviceWorkStrId}" style="width:50px;" /></td>
                 <td><input type="text" style="width:30px;" th:field="*{isDel}" th:value="N"/></td>
                 <td th:text="${#temporals.format(userForm.modifiedDate, 'yyyy-MM-dd HH:mm')}"></td>
                 <td th:text="${#temporals.format(userForm.createdDate, 'yyyy-MM-dd HH:mm')}"></td>
@@ -149,6 +161,12 @@
             <td th:text="${board.searchTag3}"></td>
             <td th:text="${board.searchTag4}"></td>
             <td th:text="${board.searchTag5}"></td>
+            <td th:text="${board.viewCount}"></td>
+            <td th:text="${board.likeCount}"></td>
+            <td th:text="${board.starCount}"></td>
+            <td th:text="${board.starAll}"></td>
+            <td th:text="${board.starPairMan}"></td>
+            <td style="width:50px;" th:text="${board.serviceWorkStr?.id }"></td>
             <td th:text="${board.isDel}"></td>
             <td th:text="${ #temporals.format(board.modifiedDate, 'yyyy-MM-dd HH:mm')}"></td>
             <td th:text="${ #temporals.format(board.createdDate, 'yyyy-MM-dd HH:mm')}"></td>

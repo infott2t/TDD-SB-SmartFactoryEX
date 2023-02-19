@@ -87,6 +87,12 @@
             <th>searchTag3</th>
             <th>searchTag4</th>
             <th>searchTag5</th>
+            <th>viewCount</th>
+            <th>likeCount</th>
+            <th>starCount</th>
+            <th>starAll</th>
+            <th>starPairMan</th>
+            <th>service_work_str_id</th>
             <th>삭제여부</th>
             <th>수정일</th>
             <th>생성일</th>
@@ -109,6 +115,12 @@
             <td th:text="${board.searchTag3}"></td>
             <td th:text="${board.searchTag4}"></td>
             <td th:text="${board.searchTag5}"></td>
+            <td th:text="${board.viewCount}"></td>
+            <td th:text="${board.likeCount}"></td>
+            <td th:text="${board.starCount}"></td>
+            <td th:text="${board.starAll}"></td>
+            <td th:text="${board.starPairMan}"></td>
+            <td th:text="${board.serviceWorkStr?.id}"></td>
             <td th:text="${board.isDel}"></td>
             <td th:text="${ #temporals.format(board.modifiedDate, 'yyyy-MM-dd HH:mm')}"></td>
             <td th:text="${ #temporals.format(board.createdDate, 'yyyy-MM-dd HH:mm')}"></td>

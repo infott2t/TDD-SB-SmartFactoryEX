@@ -1,5 +1,7 @@
 package com.example.firstinstance.controller.firstinstanceurl.domain.servicework;
 import lombok.RequiredArgsConstructor;
+import com.example.domain.serviceworkstr.ServiceWorkStr;
+import com.example.domain.serviceworkstr.ServiceWorkStrService;
 // import Service, Entity, ApiDtoForm.
 import com.example.domain.servicework.ServiceWork;
 import com.example.domain.servicework.ServiceWorkApiDto;
@@ -24,6 +26,7 @@ import java.time.LocalDateTime;
 public class InstanceUrlServiceWorkController {
 
     private final ServiceWorkService serviceWorkService;
+    private final ServiceWorkStrService serviceWorkStrService;
 
     @GetMapping("/administer/instanceurl/serviceWork")
     public String index(Model model, ServiceWorkSearchCondition condition,
@@ -62,6 +65,17 @@ public class InstanceUrlServiceWorkController {
     public String insert_2(Model model, ServiceWorkApiDtoForm userForm){
 
         ServiceWork serviceWork = null;
+        ServiceWorkStr serviceWorkStr = null;
+
+        if(userForm.getServiceWorkStrId()!=null) {
+            try {
+                  serviceWorkStr = serviceWorkStrService.findById(userForm.getServiceWorkStrId());
+            } catch (Exception e) {
+                return "redirect:/administer/instanceurl/serviceWork/insert";
+            }
+        }
+
+
 
         try {
             serviceWork = new ServiceWork();
@@ -82,7 +96,13 @@ public class InstanceUrlServiceWorkController {
         serviceWork.setSearchTag3(userForm.getSearchTag3());
         serviceWork.setSearchTag4(userForm.getSearchTag4());
         serviceWork.setSearchTag5(userForm.getSearchTag5());
+        serviceWork.setViewCount(userForm.getViewCount());
+        serviceWork.setLikeCount(userForm.getLikeCount());
+        serviceWork.setStarCount(userForm.getStarCount());
+        serviceWork.setStarAll(userForm.getStarAll());
+        serviceWork.setStarPairMan(userForm.getStarPairMan());
         serviceWork.setIsDel(userForm.getIsDel());
+            if(serviceWorkStr !=null){serviceWork.setServiceWorkStr(serviceWorkStr);}
             serviceWork.setModifiedDate(LocalDateTime.now());
             serviceWork.setCreatedDate(LocalDateTime.now());
             serviceWork.setIsDel("N");
@@ -150,7 +170,15 @@ public class InstanceUrlServiceWorkController {
         userForm.setSearchTag3(serviceWork.getSearchTag3());
         userForm.setSearchTag4(serviceWork.getSearchTag4());
         userForm.setSearchTag5(serviceWork.getSearchTag5());
+        userForm.setViewCount(serviceWork.getViewCount());
+        userForm.setLikeCount(serviceWork.getLikeCount());
+        userForm.setStarCount(serviceWork.getStarCount());
+        userForm.setStarAll(serviceWork.getStarAll());
+        userForm.setStarPairMan(serviceWork.getStarPairMan());
         userForm.setIsDel(serviceWork.getIsDel());
+        if(serviceWork.getServiceWorkStr()!=null) {
+            userForm.setServiceWorkStrId(serviceWork.getServiceWorkStr().getId());
+        }
 
         userForm.setCreatedDate(serviceWork.getCreatedDate());
         userForm.setModifiedDate(serviceWork.getModifiedDate());
@@ -166,12 +194,21 @@ public class InstanceUrlServiceWorkController {
 
 
         ServiceWork serviceWork = null;
+        ServiceWorkStr serviceWorkStr = null;
         try{
             serviceWork = serviceWorkService.findById(id);
         }catch(Exception e){
             return "redirect:/administer/instanceurl/serviceWork/insert";
         }
 
+        if(userForm.getServiceWorkStrId()!=null){
+            try{
+                serviceWorkStr = serviceWorkStrService.findById(userForm.getServiceWorkStrId());
+                serviceWork.setServiceWorkStr(serviceWorkStr);
+            }catch(Exception e){
+                return "redirect:/administer/instanceurl/serviceWork/insert";
+            }
+        }
         try{
         DateTimeFormatter stdFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         serviceWork.setCoopName(userForm.getCoopName());
@@ -190,6 +227,11 @@ public class InstanceUrlServiceWorkController {
         serviceWork.setSearchTag3(userForm.getSearchTag3());
         serviceWork.setSearchTag4(userForm.getSearchTag4());
         serviceWork.setSearchTag5(userForm.getSearchTag5());
+        serviceWork.setViewCount(userForm.getViewCount());
+        serviceWork.setLikeCount(userForm.getLikeCount());
+        serviceWork.setStarCount(userForm.getStarCount());
+        serviceWork.setStarAll(userForm.getStarAll());
+        serviceWork.setStarPairMan(userForm.getStarPairMan());
         serviceWork.setIsDel(userForm.getIsDel());
         }catch(Exception e){
             return "redirect:/administer/instanceurl/serviceWork/insert";

@@ -1,10 +1,13 @@
 package com.example.controller;
 
+import com.example.domain.servicework.ServiceWorkService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class UrlController {
+
+    ServiceWorkService serviceWorkService;
 
     @GetMapping("/")
     public String index(){
@@ -38,7 +41,11 @@ public class UrlController {
     public String search2stand_food() {return "search2stand_food"; }
 
     @GetMapping("/search2stand_food_kimchi")
-    public String search2stand_food_kimchi() {return "search2stand_food_kimchi"; }
+    public String search2stand_food_kimchi() {
+        // 서서 일하기, 음식 만들기, 김치
+
+        return "search2stand_food_kimchi";
+    }
 
     @GetMapping("/plan/kimchi")
     public String plan_kimchi() {return "plan/kimchi"; }
